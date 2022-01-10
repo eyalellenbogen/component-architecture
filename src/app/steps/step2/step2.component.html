@@ -1,0 +1,13 @@
+<div class="part">
+  <h1>Data driven</h1>
+  <h2>Clear and strict</h2>
+  <app-timeline1 [items]="data1"></app-timeline1>
+</div>
+
+<div class="part">
+  <h1>Template through data</h1>
+  <h2>Flexible</h2>
+
+  <app-timeline2 [items]="data2"></app-timeline2>
+  <ng-template #customTemplate let-item> 🎉🎉🎉{{ item.title }} 🎉🎉🎉</ng-template>
+</div>

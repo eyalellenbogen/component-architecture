@@ -1,0 +1,102 @@
+$bulletSize: 40px;
+$bulletGap: 50px;
+$bulletBorder: 4px;
+$transition: 0.25s;
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+}
+
+h2 {
+  margin: 10px 0 40px;
+  padding: 0 0 10px;
+  font-size: 18px;
+  color: #666;
+  border-bottom: 1px solid #aaa;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  li {
+    display: flex;
+    cursor: pointer;
+    &:not(:last-child) {
+      height: $bulletSize + $bulletGap;
+    }
+    &:last-child {
+      > .marker {
+        &:before {
+          display: none;
+        }
+      }
+    }
+    &:hover {
+      > .marker {
+        // box-shadow: none;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        &:after {
+          top: 0;
+          left: 0;
+          width: $bulletSize;
+          height: $bulletSize;
+        }
+      }
+    }
+    > .marker {
+      margin-right: 15px;
+      position: relative;
+      display: block;
+      width: $bulletSize;
+      height: $bulletSize;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: box-shadow $transition;
+      &:before {
+        position: absolute;
+        content: "";
+        height: $bulletGap;
+        width: 1px;
+        display: block;
+        border-left: 2px dashed rgba(0, 0, 0, 0.3);
+        left: $bulletSize / 2;
+        top: $bulletSize;
+      }
+      &:after {
+        transition: all $transition;
+        content: "";
+        display: block;
+        position: absolute;
+        top: $bulletBorder;
+        left: $bulletBorder;
+        width: $bulletSize - ($bulletBorder * 2);
+        height: $bulletSize - ($bulletBorder * 2);
+        background-color: rgb(255, 0, 119);
+        border-radius: 50%;
+      }
+    }
+    .content-holder {
+      flex: 1;
+      .title {
+        display: block;
+        font-size: 1.2em;
+        font-weight: normal;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+        padding-left: 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #cacaca;
+        transition: all $transition;
+      }
+      .content {
+        transition: all $transition;
+        padding-left: 0;
+      }
+    }
+  }
+}

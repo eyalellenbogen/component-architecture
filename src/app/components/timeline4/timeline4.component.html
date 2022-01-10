@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let item of items">
+    <div class="marker"></div>
+    <div class="content-holder">
+      <div class="title">
+        <ng-container *ngTemplateOutlet="item.title"></ng-container>
+      </div>
+      <div class="content">
+        <ng-container *ngTemplateOutlet="item.content"></ng-container>
+      </div>
+    </div>
+  </li>
+</ul>
